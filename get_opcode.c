@@ -43,6 +43,7 @@ void get_opcode(stack_t **stack, unsigned int line_number, char *code)
 	}
 	fprintf(stderr, "L%u %s %s", line_number, ": unknown instruction\n", code);
 
+	free_stack_t(*stack);
 	exit(EXIT_FAILURE);
 }
 
