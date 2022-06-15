@@ -6,7 +6,8 @@
 
 #define INSTRUCTIONS
 {
-{"push", push}
+{"push", push},
+{"pall", pall}    
 }
 
 /**
@@ -54,6 +55,7 @@ void free_stack(stack_t *stack);
 size_t print_stack(const stack_t *stack);
 
 void push(stack_t **stack, unsigned int line_count);
+void pall(stack_t **stack, unsigned int line_counte);
 
 void opcode(stack_t **stack, char *str, unsigned int line_count);
 
