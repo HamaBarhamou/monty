@@ -12,7 +12,15 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <unistd.h>
 #include "main.h"
+
+
+#define BUF_SIZE 9096
+#define LINE 100
 
 /**
 * main - function
@@ -24,13 +32,30 @@
 
 int main(int argc, char **argv)
 {
+	char *filename, buf[BUF_SIZE + 1];
+	int fp, ret, nbLine = 1;
+
 	if (argc != 2)
 	{
 		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%s\n", argv[1]);
+	filename = argv[1];
+	fp = open(filename, O_RDONLY);
+	if (fp == -1)
+	{
+		_puts("Error: Can't open file <file>\n");
+		exit(EXIT_FAILURE);
+	}
 
-	return (0);
+	while ((ret = read(fp, buf, LINE)))
+	{
+		buf[ret] = '\n';
+		_puts(buf);
+		nbLine++;
+	}
+
+	close(fp);
+	exit(EXIT_SUCCESS);
 }
