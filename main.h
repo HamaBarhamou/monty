@@ -33,5 +33,8 @@ typedef struct instruction_s
 
 void _puts(char *str);
 int _putchar(char c);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack);
+void (*get_instr_func(char *s))(stack_t **stack, unsigned int line_number);
 
 #endif
