@@ -1,6 +1,10 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
+#define UNUSED(x) (void)(x)
+#define BUF_SIZE 9096
+#define LINE 1000
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
