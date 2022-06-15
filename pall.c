@@ -10,6 +10,7 @@
 
 void  _pall(stack_t **pile, unsigned  int line_number)
 {
+	_puts("pall: RAS\n");
 	UNUSED(pile);
 	UNUSED(line_number);
 }

@@ -50,6 +50,11 @@ int main(int argc, char **argv)
 
 	while (fgets(line, LINE, fp) != NULL)
 	{
+		/**
+		 *code = strtok(line, " \t\r\v\f");
+		 *if (code != NULL && code[0] != '#')
+		 *	get_opcode(&stack, nbLine, code);
+		 */
 		_puts(line);
 		nbLine++;
 	}
