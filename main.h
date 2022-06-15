@@ -68,7 +68,11 @@ void  _queue(stack_t **pile, unsigned  int line_number);
  *
  * Return: void.
  */
+
 void get_opcode(stack_t **stack, unsigned int line_number, char *code);
-void add_node(stack_t **stack, int argument)
+void add_node(stack_t **stack, int argument);
+void add_node_queue(stack_t **stack, int argument);
+void free_stack_t(stack_t *head);
+void add_node_queue(stack_t **stack, int argument);
 
 #endif

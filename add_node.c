@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * add_node -  pushes an element to the stack.
  * @stack: double pointer to header (top) of the stack.
@@ -12,7 +14,7 @@ void add_node(stack_t **stack, int argument)
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		free_stack_t(*stack);
 
 		exit(EXIT_FAILURE);
@@ -31,4 +33,3 @@ void add_node(stack_t **stack, int argument)
 		*stack = new_node;
 	}
 }
-

@@ -10,7 +10,7 @@
 
 void  _push(stack_t **pile, unsigned  int line_number)
 {
-	_puts("push: RAS\n")
+	_puts("push: RAS\n");
 	UNUSED(pile);
 	UNUSED(line_number);
 }

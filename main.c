@@ -30,9 +30,10 @@
 
 int main(int argc, char **argv)
 {
-	char *filename, line[BUF_SIZE + 1];
+	char *filename, line[BUF_SIZE + 1], *code = NULL;
 	int nbLine = 1;
 	FILE *fp;
+	stack_t *stack =NULL;
 
 	if (argc != 2)
 	{
@@ -50,12 +51,10 @@ int main(int argc, char **argv)
 
 	while (fgets(line, LINE, fp) != NULL)
 	{
-		/**
-		 *code = strtok(line, " \t\r\v\f");
-		 *if (code != NULL && code[0] != '#')
-		 *	get_opcode(&stack, nbLine, code);
-		 */
-		_puts(line);
+		code = strtok(line, " \t\r\v\f\n");
+		if (code != NULL && code[0] != '#')
+			get_opcode(&stack, nbLine, code);
+		/*_puts(line);*/
 		nbLine++;
 	}
 
