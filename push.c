@@ -10,9 +10,15 @@
 
 void  _push(stack_t **pile, unsigned  int line_number)
 {
-	int nb = atoi(arguments);
+	int nb;
 
 
+	if (arguments == NULL)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	nb = atoi(arguments);
 	/*printf("push: %d\n",atoi(arguments));*/
 	if (arguments[0] != '0' && nb == 0)
 	{
