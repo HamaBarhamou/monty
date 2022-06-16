@@ -34,7 +34,7 @@ int main(int argc, char **argv)
 	int nbLine = 1;
 	FILE *fp;
 	stack_t *stack = NULL;
-	linefile_t *opcode_arg = NULL;
+	linefile_t *op = NULL;
 
 	if (argc != 2)
 	{
@@ -53,20 +53,20 @@ int main(int argc, char **argv)
 	arguments = NULL;
 	while (fgets(line, LINE, fp) != NULL)
 	{
-		opcode_arg  = get_opcode_and_arg(line);
-		arguments = opcode_arg->arg;
+		op  = get_opcode_and_arg(line);
+		arguments = op->arg;
 		/*code = strtok(line, " \t\r\v\f\n");*/
 		/*printf("co: %s op:  %s \n",code,opcode_arg->opcode);*/
-		if (opcode_arg->opcode != NULL && opcode_arg->opcode[0] != '#')
-			get_opcode(&stack, nbLine, opcode_arg->opcode);
+		if (op->opcode != NULL && op->opcode[0] != '#' && op->opcode[0] != '\n')
+			get_opcode(&stack, nbLine, op->opcode);
 		/*_puts(line);*/
 		nbLine++;
 	}
 
-	UNUSED(opcode_arg);
 	UNUSED(stack);
 	UNUSED(code);
 	UNUSED(arguments);
+	free_stack_t(stack);
 	fclose(fp);
 	exit(EXIT_SUCCESS);
 }
