@@ -40,6 +40,19 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct linefile_s - struct of line file
+ * @opcode: the opcode
+ * @arg: the opcode arguments
+ */
+typedef struct linefile_s
+{
+	char *opcode;
+	char *arg;
+} linefile_t;
+
+extern char *arguments;
+
 void _puts(char *str);
 int _putchar(char c);
 void  _add(stack_t **pile, unsigned  int line_number);
@@ -74,5 +87,6 @@ void add_node(stack_t **stack, int argument);
 void add_node_queue(stack_t **stack, int argument);
 void free_stack_t(stack_t *head);
 void add_node_queue(stack_t **stack, int argument);
+linefile_t *get_opcode_and_arg(char *str);
 
 #endif

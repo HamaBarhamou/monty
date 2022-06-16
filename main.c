@@ -18,7 +18,7 @@
 #include <unistd.h>
 #include "main.h"
 
-
+char *arguments = NULL;
 
 /**
 * main - function
@@ -33,7 +33,8 @@ int main(int argc, char **argv)
 	char *filename, line[BUF_SIZE + 1], *code = NULL;
 	int nbLine = 1;
 	FILE *fp;
-	stack_t *stack =NULL;
+	stack_t *stack = NULL;
+	linefile_t *opcode_arg = NULL;
 
 	if (argc != 2)
 	{
@@ -49,16 +50,23 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
+	arguments = NULL;
 	while (fgets(line, LINE, fp) != NULL)
 	{
-		code = strtok(line, " \t\r\v\f\n");
-		if (code != NULL && code[0] != '#')
-			get_opcode(&stack, nbLine, code);
+		opcode_arg  = get_opcode_and_arg(line);
+		arguments = opcode_arg->arg;
+		/*code = strtok(line, " \t\r\v\f\n");*/
+		/*printf("co: %s op:  %s \n",code,opcode_arg->opcode);*/
+		if (opcode_arg->opcode != NULL && opcode_arg->opcode[0] != '#')
+			get_opcode(&stack, nbLine, opcode_arg->opcode);
 		/*_puts(line);*/
 		nbLine++;
 	}
 
-	printf("nb=%d", nbLine);
+	UNUSED(opcode_arg);
+	UNUSED(stack);
+	UNUSED(code);
+	UNUSED(arguments);
 	fclose(fp);
 	exit(EXIT_SUCCESS);
 }
