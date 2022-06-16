@@ -10,7 +10,16 @@
 
 void  _push(stack_t **pile, unsigned  int line_number)
 {
-	_puts("push: RAS\n");
+	int nb = atoi(arguments);
+
+
+	/*printf("push: %d\n",atoi(arguments));*/
+	if (arguments[0] != '0' && nb == 0)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	add_node(pile, atoi(arguments));
 	UNUSED(pile);
 	UNUSED(line_number);
 }

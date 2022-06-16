@@ -10,7 +10,13 @@
 
 void  _pall(stack_t **pile, unsigned  int line_number)
 {
-	_puts("pall: RAS\n");
-	UNUSED(pile);
+	stack_t *ptr;
+
+	ptr = *pile;
+	while (ptr != NULL)
+	{
+		printf("%d\n", ptr->n);
+		ptr = ptr->next;
+	}
 	UNUSED(line_number);
 }
