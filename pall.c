@@ -1,13 +1,22 @@
-#include "monty.h"
+#include "main.h"
+
+
 /**
- *pall - Function that display the stack content
- *@stack: reffer to main function
- *@line_counter: number of line
- *
- *return: void
+ * _pall - function
+ * @pile: the pile
+ * @line_number: the number
+ * Return: void
  */
 
-void pall(stack_t **stack, unsigned int line_counter __attribute__((unused)))
+void  _pall(stack_t **pile, unsigned  int line_number)
 {
-print_stack(*stack);
+	stack_t *ptr;
+
+	ptr = *pile;
+	while (ptr != NULL)
+	{
+		printf("%d\n", ptr->n);
+		ptr = ptr->next;
+	}
+	UNUSED(line_number);
 }
