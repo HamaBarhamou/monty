@@ -16,7 +16,7 @@
 #include <sys/types.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "main.h"
+#include "monty.h"
 
 char *arguments = NULL;
 

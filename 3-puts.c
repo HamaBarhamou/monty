@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * _puts - a function that takes a pointer to an int as parameter and

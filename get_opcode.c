@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * get_opcode - reads opcode and verifies if is valid.
